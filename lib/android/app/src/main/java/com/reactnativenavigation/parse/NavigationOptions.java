@@ -1,5 +1,6 @@
 package com.reactnativenavigation.parse;
 
+import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 
 import org.json.JSONArray;
@@ -16,6 +17,9 @@ public class NavigationOptions {
 		result.topBarBackgroundColor = json.optInt("topBarBackgroundColor");
 		result.leftButtons = json.optJSONArray("leftButtons");
 		result.rightButtons = json.optJSONArray("rightButtons");
+		result.topBarTextColor = json.optInt("topBarTextColor");
+		result.topBarTextFontSize = (float) json.optDouble("topBarTextFontSize");
+		result.topBarTextFontFamily = json.optString("topBarTextFontFamily");
 
 		return result;
 	}
@@ -24,11 +28,18 @@ public class NavigationOptions {
 	public int topBarBackgroundColor = 0;
 	public JSONArray leftButtons = null;
 	public JSONArray rightButtons = null;
+	@ColorInt
+	public int topBarTextColor;
+	public float topBarTextFontSize;
+	public String topBarTextFontFamily;
 
 	public void mergeWith(final NavigationOptions other) {
 		title = other.title;
 		topBarBackgroundColor = other.topBarBackgroundColor;
 		leftButtons = other.leftButtons;
 		rightButtons = other.rightButtons;
+		topBarTextColor = other.topBarTextColor;
+		topBarTextFontSize = other.topBarTextFontSize;
+		topBarTextFontFamily = other.topBarTextFontFamily;
 	}
 }
