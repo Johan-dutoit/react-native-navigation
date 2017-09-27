@@ -32,8 +32,7 @@ public class NavigationEvent {
 	}
 
 	public void sendOnNavigationButtonPressed(String id, String buttonId) {
-		//TODO!
-		//emit(onNavigationButtonPressed, id);
+		emit(onNavigationButtonPressed, id);
 	}
 
 	private void emit(String eventName) {
